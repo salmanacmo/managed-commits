@@ -1,0 +1,32 @@
+stages:
+  - push_to_github
+
+push_to_github_job:
+  stage: push_to_github
+  only:
+    - production-release  # This job will only run for changes to the production-release branch
+  script:
+    - echo "Checking the current working directory..."
+    
+    - pwd  # Print the current working directory
+    - echo "Listing contents of the current directory..."
+    - ls -la  # List all files in the current directory, including hidden ones
+
+    # Set up Git configuration
+    - echo "Configuring Git..."
+    - git config --global user.email "salman.qureshi@acmo.in"
+    - git config --global user.name "Salman Qureshi"
+
+    # Add GitHub as a remote repository
+    - echo "Adding GitHub remote..."
+    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/salmanacmo/managed-commits.git
+
+    # Push changes to GitHub
+    - echo "Pushing changes to GitHub..."
+    - git push github HEAD:refs/heads/main --force
+
+  environment:
+    name: production
+
+  variables:
+    GIT_STRATEGY: clone
