@@ -23,7 +23,7 @@ push_to_github_job:
 
     # Push changes to GitHub
     - echo "Pushing changes to GitHub..."
-    - git push github HEAD:refs/heads/main --force
+    - git push github HEAD:refs/heads/acmo-dev --force
 
   environment:
     name: production
