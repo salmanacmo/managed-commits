@@ -6,11 +6,11 @@ push_to_github_job:
   only:
     - production-release  # This job will only run for changes to the production-release branch
   script:
-    - echo "Checking the current working directory..."
+    # - echo "Checking the current working directory..."
     
-    - pwd  # Print the current working directory
-    - echo "Listing contents of the current directory..."
-    - ls -la  # List all files in the current directory, including hidden ones
+    # - pwd  # Print the current working directory
+    # - echo "Listing contents of the current directory..."
+    # - ls -la  # List all files in the current directory, including hidden ones
 
     # Set up Git configuration
     - echo "Configuring Git..."
